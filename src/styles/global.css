@@ -7,9 +7,6 @@
   padding: 0;
 }
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;600;700;800&display=swap');
-
 /* CSS Variables */
 :root {
   --gradient-start: #064AAD;
