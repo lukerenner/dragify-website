@@ -1,0 +1,53 @@
+---
+import { config } from '../config';
+---
+
+<header class="site-header">
+  <div class="container header-content">
+    <div class="logo">
+      <span class="gradient-text">Dragify</span>
+    </div>
+    <a href={config.appStoreUrl} class="btn btn-primary">Get the App</a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--gradient);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+  }
+
+  .logo .gradient-text {
+    color: var(--white);
+    background: var(--white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 1.5rem;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

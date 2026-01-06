@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Support - Dragify">
+  <Header />
+  <main class="support-page">
+    <div class="container">
+      <div class="support-content">
+        <h1 class="gradient-text">Need Help?</h1>
+        <p class="support-intro">
+          We're here to help! Use the contact form below to get in touch with our support team.
+        </p>
+        
+        <div class="support-cta">
+          <a href="/#contact" class="btn btn-primary">Contact Support</a>
+        </div>
+        
+        <div class="support-info">
+          <h2>Other Ways to Reach Us</h2>
+          <p>You can also scroll down to the bottom of any page to find our contact form.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .support-page {
+    min-height: 60vh;
+    padding: var(--spacing-xl) 0;
+  }
+
+  .support-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .support-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .support-intro {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-dark);
+  }
+
+  .support-cta {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .support-info {
+    padding: var(--spacing-lg);
+    background: #f8f8f8;
+    border-radius: var(--border-radius);
+  }
+
+  .support-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--gradient-start);
+  }
+
+  .support-info p {
+    color: var(--text-dark);
+  }
+</style>

@@ -1,0 +1,100 @@
+---
+import { config } from '../config';
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="gradient-text hero-title">Dragify</h1>
+        <p class="hero-subtitle">DISCOVER YOUR INNER QUEEN. ✨👑</p>
+        <a href={config.appStoreUrl} class="app-store-badge">
+          <img src="/images/Download.png" alt="Download on the App Store" width="200" height="60" />
+        </a>
+      </div>
+      <div class="hero-image">
+        <img src="/images/1 - header.png" alt="Dragify App on iPhone" width="400" height="800" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--white);
+    padding: var(--spacing-xl) 0;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+
+  .hero-content {
+    padding-right: var(--spacing-md);
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-dark);
+  }
+
+  .app-store-badge {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .app-store-badge:hover {
+    transform: scale(1.05);
+  }
+
+  .app-store-badge img {
+    width: auto;
+    height: 60px;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    transform: rotate(-5deg);
+  }
+
+  @media (max-width: 968px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .hero-content {
+      text-align: center;
+      padding-right: 0;
+      order: 2;
+    }
+
+    .hero-image {
+      order: 1;
+    }
+
+    .hero-image img {
+      max-width: 300px;
+    }
+  }
+</style>

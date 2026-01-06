@@ -1,0 +1,93 @@
+---
+// Before/After Slider Component
+---
+
+<section class="slider-section">
+  <div class="container">
+    <h2 class="section-title gradient-text">
+      Unleash the Queen<br />
+      <em>Inside You!</em>
+    </h2>
+    <div class="slider-container">
+      <div class="slider-images">
+        <img 
+          src="/images/4 - before.png" 
+          alt="Before transformation" 
+          class="slider-image slider-image-before"
+          width="800"
+          height="1067"
+          loading="lazy"
+        />
+        <img 
+          src="/images/4 - after.png" 
+          alt="After transformation" 
+          class="slider-image slider-image-after"
+          id="afterImage"
+          width="800"
+          height="1067"
+          loading="lazy"
+        />
+      </div>
+      <input 
+        type="range" 
+        min="0" 
+        max="100" 
+        value="50" 
+        class="slider-control"
+        id="sliderControl"
+        aria-label="Before and after comparison slider"
+      />
+      <div class="slider-handle" id="sliderHandle"></div>
+      <div class="slider-labels">
+        <span class="slider-label">Before</span>
+        <span class="slider-label">After</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slider = document.getElementById('sliderControl') as HTMLInputElement;
+  const afterImage = document.getElementById('afterImage') as HTMLElement;
+  const handle = document.getElementById('sliderHandle') as HTMLElement;
+
+  function updateSlider(value: number) {
+    const percentage = value;
+    afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+    handle.style.left = `${percentage}%`;
+  }
+
+  if (slider && afterImage && handle) {
+    slider.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement;
+      updateSlider(Number(target.value));
+    });
+
+    // Initialize at 50%
+    updateSlider(50);
+  }
+</script>
+
+<style>
+  .slider-section {
+    background: var(--white);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+  }
+
+  .section-title em {
+    font-style: italic;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+  }
+</style>
