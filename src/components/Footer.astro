@@ -1,186 +1,164 @@
 ---
+// Footer Component
 import { config } from '../config';
 ---
 
-<footer class="site-footer" id="contact">
+<footer class="site-footer">
   <div class="footer-gradient">
-    <div class="container">
-      <div class="footer-content">
-        <h3 class="footer-heading">Contact Support or send us a message</h3>
-        
-        <form 
-          action={config.formEndpoint}
-          method="POST"
-          class="contact-form"
-        >
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              required 
-              placeholder="Your name"
-            />
+    <div class="container footer-container">
+      <h2 class="footer-heading text-center">Contact Support or send us a message</h2>
+      
+      <form 
+        action={config.formEndpoint}
+        method="POST"
+        class="contact-form"
+      >
+        <div class="form-columns">
+          <div class="form-col-left">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Email" required />
+            </div>
           </div>
-          
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              required 
-              placeholder="your@email.com"
-            />
+          <div class="form-col-right">
+            <div class="form-group">
+              <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
+            </div>
           </div>
-          
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea 
-              id="message" 
-              name="message" 
-              rows="5" 
-              required
-              placeholder="How can we help you?"
-            ></textarea>
-          </div>
-          
-          <button type="submit" class="btn btn-white">Send Message</button>
-        </form>
+        </div>
+        <button type="submit" class="hidden-submit" style="display: none;">Submit</button>
+      </form>
+
+      <div class="footer-bottom">
+        <div class="footer-tagline">
+          Made with love by drag queens for drag queens (especially queens like you!) 💅
+        </div>
+        <div class="footer-links">
+          <a href="/terms">Terms of Service</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/open-source">Open Source Licenses</a>
+        </div>
       </div>
-    </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="footer-links">
-        <a href="/terms">Terms of Service</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/open-source">Open Source</a>
-      </div>
-      <p class="footer-tagline">
-        Made with love by drag queens for drag queens (especially queens like you!) 💖✨
-      </p>
     </div>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    margin-top: var(--spacing-xl);
+    width: 100%;
   }
 
   .footer-gradient {
-    background: var(--gradient);
+    background: linear-gradient(90deg, #064AAD 0%, #AF49E8 100%);
     padding: var(--spacing-xl) 0;
     color: var(--white);
   }
 
-  .footer-content {
-    max-width: 600px;
-    margin: 0 auto;
+  .footer-container {
+    max-width: 1000px;
   }
 
   .footer-heading {
-    text-align: center;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin-bottom: var(--spacing-lg);
     color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-text); /* Matches the UI font in image, looks like Inter/System */
   }
 
   .contact-form {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .form-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-md);
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .form-group label {
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
 
   .form-group input,
   .form-group textarea {
+    width: 100%;
     padding: 1rem;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    font-family: inherit;
+    border: none;
+    border-radius: 8px;
+    background: var(--white);
+    color: #8E3BB8; /* Purple text placeholder color from image roughly */
+    font-family: var(--font-text);
     font-size: 1rem;
-    transition: all 0.3s ease;
+    font-weight: 600;
   }
 
   .form-group input::placeholder,
   .form-group textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: #A962D6; /* Lighter purple placeholder */
+    font-weight: 700;
+  }
+  
+  .form-group textarea {
+    height: 100%;
+    resize: none;
+    min-height: 120px;
   }
 
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--white);
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  .contact-form .btn {
-    margin-top: var(--spacing-sm);
-    align-self: center;
+  .form-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
   }
 
   .footer-bottom {
-    background: #f8f8f8;
-    padding: var(--spacing-md) 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: var(--spacing-xl);
+    font-size: 0.9rem;
+  }
+
+  .footer-tagline {
+    font-weight: 600;
+    max-width: 50%;
   }
 
   .footer-links {
     display: flex;
-    justify-content: center;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: right;
   }
 
   .footer-links a {
-    color: var(--gradient-start);
+    color: var(--white);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
+    opacity: 0.9;
+    transition: opacity 0.2s;
   }
 
   .footer-links a:hover {
-    color: var(--gradient-end);
-  }
-
-  .footer-tagline {
-    font-size: 0.9rem;
-    color: var(--text-dark);
-    font-style: italic;
+    opacity: 1;
   }
 
   @media (max-width: 768px) {
-    .footer-heading {
-      font-size: 1.3rem;
+    .form-columns {
+      grid-template-columns: 1fr;
     }
     
-    .footer-links {
+    .footer-bottom {
       flex-direction: column;
-      gap: var(--spacing-sm);
+      align-items: center;
+      text-align: center;
+      gap: var(--spacing-lg);
     }
     
     .footer-tagline {
-      font-size: 0.85rem;
-      padding: 0 var(--spacing-sm);
+      max-width: 100%;
+    }
+    
+    .footer-links {
+      text-align: center;
     }
   }
 </style>

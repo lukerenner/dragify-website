@@ -90,6 +90,15 @@ h2 {
   font-weight: 400;
 }
 
+.pink-text {
+  font-family: var(--font-heading);
+  color: var(--pink);
+  /* Solid pink */
+  display: inline-block;
+  font-style: italic;
+  font-weight: 400;
+}
+
 /* Blue Bold Text */
 .blue-bold-text {
   font-family: var(--font-heading);
