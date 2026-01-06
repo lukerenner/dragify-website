@@ -1,6 +1,6 @@
 ---
 import { config } from '../config';
-const baseUrl = import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="hero" style={`background-image: url('${baseUrl}/images/Full%20Header.webp')`}>

@@ -1,6 +1,6 @@
 ---
 // Packs Section Component
-const baseUrl = import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 const packs = [
   { id: 1, image: `${baseUrl}/images/3%20-%20pack%201.webp`, alt: 'Afterglow Pack' },
   { id: 2, image: `${baseUrl}/images/3%20-%20pack%202.webp`, alt: 'Haute Haus Pack' },
