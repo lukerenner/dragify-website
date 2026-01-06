@@ -11,19 +11,21 @@ const baseUrl = import.meta.env.BASE_URL;
     </h2>
     <div class="slider-container">
       <div class="slider-images">
+        <!-- Bottom image is After (Queen, visible on Right) -->
         <img 
-          src={`${baseUrl}/images/4%20-%20before.png`}
-          alt="Before transformation" 
-          class="slider-image slider-image-before"
+          src={`${baseUrl}/images/4%20-%20after.png`}
+          alt="After transformation" 
+          class="slider-image slider-image-bottom"
           width="800"
           height="1067"
           loading="lazy"
         />
+        <!-- Top image is Before (Guy, clipped to show on Left) -->
         <img 
-          src={`${baseUrl}/images/4%20-%20after.png`}
-          alt="After transformation" 
-          class="slider-image slider-image-after"
-          id="afterImage"
+          src={`${baseUrl}/images/4%20-%20before.png`}
+          alt="Before transformation" 
+          class="slider-image slider-image-top"
+          id="topImage"
           width="800"
           height="1067"
           loading="lazy"
@@ -49,16 +51,19 @@ const baseUrl = import.meta.env.BASE_URL;
 
 <script>
   const slider = document.getElementById('sliderControl') as HTMLInputElement;
-  const afterImage = document.getElementById('afterImage') as HTMLElement;
+  const topImage = document.getElementById('topImage') as HTMLElement;
   const handle = document.getElementById('sliderHandle') as HTMLElement;
 
   function updateSlider(value: number) {
     const percentage = value;
-    afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+    // inset(0 right bottom left)
+    // We want to clip the Top Image (Before) from the Right side.
+    // 100% slider = 100% clip (fully revealed After image)
+    topImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
     handle.style.left = `${percentage}%`;
   }
 
-  if (slider && afterImage && handle) {
+  if (slider && topImage && handle) {
     slider.addEventListener('input', (e) => {
       const target = e.target as HTMLInputElement;
       updateSlider(Number(target.value));
@@ -80,10 +85,136 @@ const baseUrl = import.meta.env.BASE_URL;
     font-size: clamp(2rem, 5vw, 3.5rem);
     line-height: 1.1;
   }
+  
+  .slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Reduced max-width to control height */
+    margin: 0 auto;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+
+  .slider-images {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slider-image-bottom {
+    z-index: 1;
+  }
+
+  .slider-image-top {
+    z-index: 2;
+    /* clip-path will be set by JS */
+  }
+
+  .slider-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    opacity: 0;
+    cursor: ew-resize;
+  }
+
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: var(--white);
+    z-index: 4;
+    pointer-events: none; /* Let clicks pass through to input */
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .slider-handle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: var(--white);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    border: 3px solid var(--gradient-start);
+  }
+
+  .slider-handle::after {
+    content: '⟷';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: var(--gradient-start);
+    font-weight: bold;
+  }
+
+  .slider-labels {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .slider-label {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    text-transform: uppercase;
+  }
 
   @media (max-width: 768px) {
     .section-title {
       font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+    
+    .slider-container {
+      border-radius: var(--border-radius);
+    }
+    
+    .slider-handle::before {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .slider-label {
+      font-size: 1rem;
+    }
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .slider-control {
+      cursor: grab;
+    }
+    .slider-control:active {
+      cursor: grabbing;
     }
   }
 </style>

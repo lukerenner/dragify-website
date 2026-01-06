@@ -8,18 +8,18 @@ const baseUrl = import.meta.env.BASE_URL;
     <div class="hero-grid">
       <div class="hero-content">
         <h1 class="hero-title">
-          <span class="blue-bold-text">Dragify</span>
+          <span class="gradient-text">Dragify</span>
         </h1>
         <p class="hero-subtitle">
           <span class="pink-gradient-text">DISCOVER YOUR</span><br />
-          <span class="pink-gradient-text">INNER QUEEN.</span> 👑✨
+          <span class="pink-gradient-text">INNER QUEEN.</span> 💅
         </p>
         <a href={config.appStoreUrl} class="app-store-link">
-          <img src={`${baseUrl}/images/Download.png`} alt="Download on the App Store" width="135" height="40" />
+          <img src={`${baseUrl}/images/Download.png`} alt="Download on the App Store" width="270" height="80" />
         </a>
       </div>
       <div class="hero-image">
-        <img src={`${baseUrl}/images/1%20-%20header.png`} alt="Dragify App on iPhone" width="350" height="700" />
+        <img src={`${baseUrl}/images/1%20-%20header.png`} alt="Dragify App on iPhone" width="500" height="1000" />
       </div>
     </div>
   </div>
@@ -29,17 +29,21 @@ const baseUrl = import.meta.env.BASE_URL;
   .hero {
     background: var(--white);
     padding: var(--spacing-lg) 0;
+    overflow: hidden; /* Ensure headers don't cause scroll */
   }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: var(--spacing-sm);
     align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
   .hero-content {
-    padding-right: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+    z-index: 10;
   }
 
   .hero-title {
@@ -65,7 +69,7 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   .app-store-link img {
-    height: 40px;
+    height: 80px;
     width: auto;
   }
 
@@ -73,10 +77,12 @@ const baseUrl = import.meta.env.BASE_URL;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: -10%; /* Pull image to the right edge */
   }
 
   .hero-image img {
-    max-width: 100%;
+    max-width: 120%;
+    width: 600px;
     height: auto;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
   }
