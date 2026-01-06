@@ -1,5 +1,6 @@
 ---
 // Before/After Slider Component
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <section class="slider-section">
@@ -11,7 +12,7 @@
     <div class="slider-container">
       <div class="slider-images">
         <img 
-          src="/images/4%20-%20before.png" 
+          src={`${baseUrl}images/4%20-%20before.png`}
           alt="Before transformation" 
           class="slider-image slider-image-before"
           width="800"
@@ -19,7 +20,7 @@
           loading="lazy"
         />
         <img 
-          src="/images/4%20-%20after.png" 
+          src={`${baseUrl}images/4%20-%20after.png`}
           alt="After transformation" 
           class="slider-image slider-image-after"
           id="afterImage"
