@@ -13,7 +13,7 @@ const packs = [
   <div class="container">
     <h2 class="section-title text-center">
       <span class="pink-text h3-style">EXPAND YOUR WARDROBE WITH</span><br />
-      <span class="gradient-text h2-style">Limited-Edition Packs</span>
+      <span class="gradient-text h1-style">Limited-Edition Packs</span>
     </h2>
     <div class="packs-grid">
       {packs.map((pack) => (
@@ -39,8 +39,15 @@ const packs = [
 
   .section-title {
     margin-bottom: var(--spacing-xl);
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    line-height: 1.2;
+    line-height: 1.1;
+  }
+
+  .h1-style {
+    font-size: clamp(3rem, 6vw, 5rem);
+  }
+
+  .h3-style {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
   }
 
   .packs-grid {

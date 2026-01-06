@@ -1,0 +1,249 @@
+Dragify Terms of Use Agreement
+
+Last updated: January 3, 2026.
+
+This Terms of Use Agreement (“Agreement”) applies to your access and use of the Dragify website (the “Site”) and the Dragify mobile applications (each, the “App” and collectively, the “Apps”) and related services (collectively, including the Site and Apps, the “Services”) provided by Dragify (“Dragify,” “we,” “us,” or “our”).
+
+By accessing, browsing, installing, creating an account, purchasing a subscription or pack, or otherwise using any part of the Services, you acknowledge that you have read, understood, and agree to be bound by this Agreement. If you do not agree to this Agreement (including, if you are located in the United States, the mandatory arbitration provision and class action waiver in Section 12A), do not access or use the Services, cancel any subscription, and delete any copies of the Apps.
+
+PLEASE READ THIS AGREEMENT CAREFULLY. It contains important information regarding your legal rights and obligations, including (for U.S. users) binding arbitration and a class action waiver, and important disclaimers and limitations of liability.
+
+We may change this Agreement at any time in our sole discretion. When changes are made, we will post the updated Agreement in the Services and update the “Last updated” date above. Changes are effective immediately for new users and become effective for existing users after we provide notice as required by applicable law. If you do not agree to the updated Agreement, you must stop using the Services.
+
+If you breach this Agreement, we may suspend or terminate your access to the Services without notice, to the extent permitted by law.
+
+Contact: support@dragify.app (placeholder)
+
+1. Eligibility
+
+You must be at least 13 years old to use the Services (or older where required by local law or app store requirements). The Services are not directed to children under 13.
+
+If you are under 18 (or the age of legal majority where you live), you may use the Services only with the consent and supervision of a parent or legal guardian who agrees to be bound by this Agreement and is responsible for your use.
+
+If you use the Services on behalf of another person or entity, you represent that you have authority to bind them and that they accept responsibility for your actions.
+
+The Services are intended for personal, non-commercial use unless we expressly agree otherwise in writing.
+
+2. Privacy
+
+Our collection and use of information is described in our Privacy Policy (placeholder). By using the Services, you acknowledge that we may process information as described in that policy, including processing of photos and related metadata to provide image generation and transformation features.
+
+3. User Content; Output; License
+3.1 Definitions
+
+“User Content” means photos, images, videos, and other materials you upload, capture, submit, or otherwise make available through the Services.
+
+“Output” (or “Transformed Content”) means images or other results generated or transformed by the Services using User Content and/or your prompts or selections.
+
+3.2 Ownership
+
+As between you and Dragify, and subject to this Agreement, you retain your rights (if any) in your User Content. Dragify does not claim ownership of your User Content.
+
+Output may be influenced by User Content and other inputs and systems. To the extent permitted by law, you own the Output you receive as between you and Dragify, subject to (a) Dragify’s underlying technology and (b) third-party rights, and (c) your compliance with this Agreement.
+
+3.3 License You Grant Dragify
+
+You grant Dragify a non-exclusive, worldwide, royalty-free, sublicensable license to host, store, reproduce, process, modify, and transmit your User Content solely to:
+
+provide and operate the Services (including generating Output),
+
+maintain safety, security, and integrity of the Services,
+
+troubleshoot, monitor performance, and prevent abuse, and
+
+comply with law and enforce this Agreement.
+
+We may temporarily cache and store User Content and Output to operate the Services.
+
+3.4 Training and Improvement (Stand-In)
+
+Default position for this placeholder: Dragify does not use your User Content to train or improve general-purpose models unless (a) you opt in, (b) we provide clear notice and obtain consent where required, or (c) we use de-identified/aggregated telemetry strictly to improve service performance (e.g., latency, reliability). If you later decide to allow training, we will describe the scope and controls in the Privacy Policy and/or in-product settings.
+
+3.5 Watermarks and Branding
+
+If you use a free or trial tier, Dragify may apply a watermark to Output. Watermarking and placement may change over time.
+
+3.6 Your Responsibilities
+
+You are solely responsible for:
+
+ensuring you have all rights and permissions needed to upload and use User Content (including rights of the photographer and any persons depicted), and
+
+how you use, share, or publish Output.
+
+Dragify is not a backup service. You should maintain your own backups of User Content and Output.
+
+4. Prohibited Conduct and Content
+
+You may not violate any law, infringe rights, breach any contract, or misuse the Services. You agree not to:
+
+use the Services for illegal, harmful, harassing, threatening, predatory, or exploitative conduct;
+
+upload content you do not have the right to use, including infringing or misappropriating intellectual property or likeness rights;
+
+attempt to reverse engineer, decompile, or discover source code, models, prompts, or underlying methods, except to the extent such restrictions are prohibited by law;
+
+bypass paywalls, entitlements, access controls, or any technical measures;
+
+scrape, bulk extract, or harvest data from the Services;
+
+create or use third-party tools that interact with the Services without written permission;
+
+interfere with, disrupt, or overload the Services, including denial-of-service attacks;
+
+upload malware, viruses, or harmful code;
+
+impersonate others or misrepresent affiliation;
+
+remove or obscure watermarks, trademarks, or proprietary notices;
+
+use the Services to create or share content that is unlawful, defamatory, obscene, or non-consensual, including sexual content involving minors (which is strictly prohibited);
+
+use the Services for high-volume production inconsistent with personal use, or to provide services to third parties without our written permission.
+
+We may investigate suspected violations and may suspend or terminate accounts, remove content, and report to authorities as required or appropriate.
+
+5. Limited License; Intellectual Property
+
+The Services (including software, models, interface, designs, text, graphics, logos, filters, and other content provided by Dragify) are owned by Dragify or its licensors (“Dragify Content”) and protected by applicable laws.
+
+Subject to this Agreement, Dragify grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to use the Services for personal use during the term of this Agreement.
+
+You may not copy, modify, distribute, sell, lease, or create derivative works of Dragify Content except as expressly permitted in the Services.
+
+6. Feedback
+
+If you submit feedback, suggestions, or ideas (“Feedback”), you agree it is non-confidential and you grant Dragify a perpetual, irrevocable, worldwide, royalty-free license to use and exploit the Feedback without compensation.
+
+7. Copyright Complaints (DMCA)
+
+We respect intellectual property rights. If you believe content in the Services infringes your copyright, send a notice to:
+
+Copyright Agent (placeholder): copyright@dragify.app
+
+Your notice should include:
+(a) your signature; (b) identification of the copyrighted work; (c) identification of the infringing material and its location; (d) your contact information; (e) a good-faith statement; (f) a statement under penalty of perjury that the information is accurate and you are authorized.
+
+8. Indemnification
+
+To the fullest extent permitted by law, you agree to indemnify, defend, and hold harmless Dragify and its affiliates, officers, directors, employees, and agents from and against claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys’ fees) arising from:
+(a) your use of the Services; (b) your User Content or Output; (c) your violation of this Agreement or law; or (d) your infringement or violation of others’ rights.
+
+9. Disclaimers
+
+To the fullest extent permitted by law, the Services are provided “AS IS” and “AS AVAILABLE.” Dragify disclaims all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement.
+
+Dragify does not warrant that the Services will be uninterrupted, secure, or error-free, or that Output will be accurate, reliable, or meet your expectations. Output may be unexpected, may contain errors, and may not be unique.
+
+You are responsible for evaluating Output before using or sharing it.
+
+Some jurisdictions do not allow certain disclaimers; in that case, the above applies to the maximum extent permitted.
+
+10. Limitation of Liability
+
+To the fullest extent permitted by law, Dragify will not be liable for any indirect, incidental, consequential, special, exemplary, or punitive damages, or any loss of profits, revenue, goodwill, data, or other intangible losses.
+
+To the fullest extent permitted by law, Dragify’s total liability for any claim arising out of or relating to the Services will not exceed the greater of:
+(a) the amount you paid to Dragify for the Services in the 12 months before the event giving rise to the claim, or
+(b) $100.
+
+Nothing in this Agreement limits liability that cannot be excluded under applicable law.
+
+11. Release
+
+To the fullest extent permitted by law, you release Dragify from claims arising out of disputes between users or between you and any third party in connection with the Services.
+
+If you are a California resident, you waive California Civil Code § 1542 to the extent applicable.
+
+12. Dispute Resolution
+12A. Binding Arbitration Agreement (United States Users)
+
+If you are located in the United States, you and Dragify agree that disputes will be resolved by binding arbitration and not in court, except for:
+
+individual actions in small claims court, and
+
+actions seeking injunctive relief for alleged unlawful use of intellectual property.
+
+Class Action Waiver: You may bring claims only on an individual basis. Class, collective, or representative actions are not permitted.
+
+Pre-Arbitration Notice: Before initiating arbitration, you must send a written notice of dispute to legal@dragify.app (placeholder) including your contact details, a description of the dispute, and the relief sought. The parties will attempt to resolve the dispute for 60 days.
+
+Forum and Rules: Arbitration will be administered by a recognized provider (placeholder: JAMS or AAA) under its applicable rules. The arbitration may be conducted by video, phone, or in your county of residence.
+
+Opt-Out: You may opt out of arbitration within 30 days of first accepting this Agreement by sending notice to legal@dragify.app with an unequivocal statement of opt-out and your signature.
+
+12B. EU/UK Users
+
+If you are located in the EU or the UK, you may bring proceedings in your local courts or other courts as permitted by applicable consumer laws.
+
+12C. Other Jurisdictions
+
+If you are outside the U.S., EU, and UK, you and Dragify submit to the exclusive jurisdiction of courts in the governing venue specified in Section 13, to the extent permitted by law.
+
+12D. Limitations Period
+
+No claim may be brought more than one (1) year after the events giving rise to the claim, unless prohibited by law.
+
+13. Governing Law
+
+This Agreement and disputes arising from it are governed by the laws of [State/Country Placeholder], without regard to conflict-of-law principles, except where consumer protection laws require otherwise.
+
+14. Electronic Communications
+
+By using the Services, you consent to receiving communications electronically, including through the App, email, or postings in the Services. These communications satisfy legal notice requirements where permitted.
+
+15. Termination; Modifications to Services
+
+We may suspend or terminate your access at any time for any reason, including for suspected violations, to the extent permitted by law.
+
+We may modify, discontinue, or remove any part of the Services at any time. We are not liable for any resulting inability to access the Services or for loss of content, except as required by law.
+
+Sections that by their nature should survive termination will survive, including: User Content, Prohibited Conduct, Intellectual Property, Feedback, Indemnification, Disclaimers, Limitation of Liability, Release, Dispute Resolution, Governing Law, and Miscellaneous.
+
+16. Severability
+
+If any provision is held unlawful or unenforceable, the remaining provisions remain in effect, except as otherwise stated in Section 12A.
+
+17. Additional Terms for Mobile Apps and App Stores
+
+If you download the Apps from Apple’s App Store or Google Play, you agree to comply with their applicable terms. This Agreement is between you and Dragify, not Apple or Google.
+
+Apple-specific stand-in: Apple is not responsible for the Apps or content, does not provide support, and is not liable for claims relating to the Apps, to the maximum extent permitted by law. Apple and its subsidiaries are third-party beneficiaries of this Agreement and may enforce it.
+
+Google Play stand-in: If this Agreement conflicts with Google Play terms governing your use of Google Play, those terms control for matters relating to Google Play.
+
+18. Regulatory and Sanctions
+
+You agree to comply with applicable export controls and sanctions laws. You represent that you are not located in, under control of, or a national or resident of any restricted jurisdiction, and you are not on any restricted party list, to the extent required by law.
+
+19. Miscellaneous
+
+This Agreement constitutes the entire agreement between you and Dragify regarding the Services and supersedes any prior agreements on the subject.
+
+Our failure to enforce a provision is not a waiver. Section headings are for convenience only.
+
+Key placeholders to replace before publishing
+
+Company legal name and address
+
+Support/legal/copyright emails
+
+Governing law and venue (Section 13)
+
+Arbitration provider selection (JAMS vs AAA) and exact notice address
+
+Privacy Policy URL and Terms archive path
+
+Training/opt-in stance (Section 3.4) aligned with your actual product behavior
+
+You are exposed if your actual data handling differs from Section 3.4.
+
+
+Jurisdictional Availability. Dragify is intended for use only in jurisdictions where its operation is lawful. By using the Services, you represent and warrant that your use of the Services complies with all applicable laws in your jurisdiction.
+
+Biometric Data Disclaimer. Dragify does not perform identity verification, biometric identification, or biometric authentication. The Services perform transient image transformations for artistic and entertainment purposes only. Dragify does not create, store, or maintain biometric identifiers or biometric information for the purpose of identifying any individual.
+
+User Responsibility. You are solely responsible for determining whether your use of the Services is lawful in your jurisdiction. If local law prohibits or restricts your use of AI-based image transformation services, you must not use the Services.
+
+Regional Rights. Users located in jurisdictions that provide specific data protection rights (including the European Economic Area, the United Kingdom, and certain U.S. states) may have additional rights as described in our Privacy Policy.
+

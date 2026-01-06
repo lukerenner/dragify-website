@@ -1,0 +1,159 @@
+Privacy Policy
+
+Last updated: January 3, 2026
+
+This Privacy Policy (the “Policy”) describes how Dragify, Inc. (“Dragify,” “we,” “us,” or “our”) collects, uses, and shares information in connection with the Dragify mobile application (the “App”) and any related websites or services (collectively, the “Services”).
+
+WELCOME TO DRAGIFY’S PRIVACY POLICY
+
+Dragify is a creative photo transformation service that allows users to generate stylized, artistic portrait images using AI-based processing.
+
+If you do not read this entire Policy, please understand these key points:
+
+Dragify processes only the images you explicitly select for transformation.
+
+We do not use your images for advertising, training unrelated models, or selling to third parties.
+
+We use third-party cloud infrastructure to perform image processing.
+
+Images are stored only temporarily for processing and performance purposes and are automatically deleted after a short retention window.
+
+You remain in control of what you upload, delete, and share.
+
+1. INFORMATION WE COLLECT
+1.1 Images You Provide
+
+When you use the App to generate or modify an image, we temporarily process:
+
+Photos or images you upload or capture through the App.
+
+Generated images resulting from the transformation.
+
+These images are processed only to provide the requested transformation. They are not used for advertising, sold, or shared for unrelated purposes.
+
+Images are:
+
+Transmitted securely to our processing servers
+
+Stored only temporarily for processing and short-term caching
+
+Automatically deleted within a limited time window (generally within 24–48 hours)
+
+1.2 Usage and Technical Information
+
+We may collect limited non-image information including:
+
+App usage events (feature usage, session timing, error states)
+
+Device and system data (OS version, device type, language, IP-based region)
+
+Subscription and entitlement status (we do not collect billing or payment card data)
+
+This data is associated with an internal, anonymous App Instance ID rather than your name or identity.
+
+1.3 Communications
+
+If you contact us (e.g., support email), we may collect:
+
+Your email address
+
+The contents of your message
+
+Any information you voluntarily provide
+
+2. HOW WE USE INFORMATION
+2.1 Images
+
+We use images only to:
+
+Perform the requested transformation
+
+Return the generated result to you
+
+Enable limited re-edits within the short retention window
+
+We do not use your images to train unrelated AI models, for marketing, or for resale.
+
+2.2 Other Information
+
+We use non-image data to:
+
+Operate and improve the App
+
+Provide support and respond to requests
+
+Maintain security and prevent abuse
+
+Analyze aggregate usage patterns
+
+Manage subscriptions and entitlements
+
+Comply with legal obligations
+
+3. HOW WE SHARE INFORMATION
+
+We do not sell personal information.
+
+We may share information with:
+
+Cloud infrastructure providers used solely for processing and storage
+
+Service providers (hosting, analytics, crash reporting, support tooling)
+
+Professional advisors (legal, accounting, compliance)
+
+Authorities, when legally required
+
+Images are only accessible to processors necessary to provide the service and are not accessible for general internal browsing.
+
+4. YOUR CHOICES
+
+You may:
+
+Revoke device permissions (camera, photos) via system settings
+
+Delete images within the App
+
+Request deletion of cached images or account-related data
+
+Opt out of marketing communications
+
+To make a privacy request, contact: privacy@dragify.app
+
+5. THIRD-PARTY SERVICES
+
+The App may integrate with or link to third-party platforms (e.g., app stores, social platforms). Their privacy practices are governed by their own policies.
+
+6. SECURITY
+
+We use industry-standard security practices including encryption, access controls, and secure infrastructure. However, no system is perfectly secure.
+
+You are responsible for maintaining the security of your own device and account.
+
+7. DATA RETENTION
+
+Images are deleted automatically within 24–48 hours unless required for ongoing processing.
+
+Other data is retained only as long as necessary for operational, legal, or security purposes.
+
+8. INTERNATIONAL TRANSFERS
+
+Your data may be processed outside your country of residence. We apply appropriate safeguards including contractual protections and technical controls.
+
+9. CHILDREN
+
+Dragify is not intended for children under 13 (or the minimum legal age in your jurisdiction). We do not knowingly collect data from children.
+
+10. CHANGES TO THIS POLICY
+
+We may update this Policy from time to time. We will revise the “Last updated” date and notify users of material changes.
+
+11. CONTACT
+
+Dragify, Inc.
+Attn: Privacy
+Email: privacy@dragify.app
+
+Important disclaimer
+
+This document is a product-accurate placeholder, not legal advice, and does not substitute for review by a qualified privacy attorney, especially for GDPR, UK GDPR, CPRA, or biometric privacy laws.

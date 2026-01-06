@@ -32,15 +32,15 @@ import { config } from '../config';
       </form>
 
       <div class="footer-bottom">
-        <div class="footer-tagline">
-          <div>Made with love by drag queens</div>
-          <div>for drag queens (especially</div>
-          <div>queens like you!) 💅</div>
-        </div>
         <div class="footer-links">
           <a href="/terms">Terms of Service</a>
           <a href="/privacy">Privacy Policy</a>
           <a href="/open-source">Open Source Licenses</a>
+        </div>
+        <div class="footer-tagline">
+          <div>Made with love by drag queens</div>
+          <div>for drag queens (especially</div>
+          <div>queens like you!) 💅</div>
         </div>
       </div>
     </div>
@@ -190,7 +190,7 @@ import { config } from '../config';
   .footer-bottom {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Align to bottom */
+    align-items: flex-end;
     font-size: 0.9rem;
     font-weight: 600;
     line-height: 1.4;
@@ -199,15 +199,15 @@ import { config } from '../config';
     margin: 0 auto;
   }
 
-  .footer-tagline {
-    text-align: left;
-  }
-
   .footer-links {
     display: flex;
     flex-direction: column;
-    text-align: right;
-    gap: 0; /* Tight spacing like image */
+    text-align: left; /* Changed from right since links are now on left */
+    gap: 0;
+  }
+
+  .footer-tagline {
+    text-align: right; /* Changed from left since tagline is now on right */
   }
 
   .footer-links a {

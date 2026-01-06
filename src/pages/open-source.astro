@@ -1,66 +1,167 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Open Source Licenses - Dragify">
-  <Header />
   <main class="legal-page">
     <div class="container">
-      <div class="legal-content">
-        <h1>Open Source Licenses</h1>
-        <p class="last-updated">Last Updated: [DATE]</p>
-        
-        <div class="placeholder-content">
-          <p><em>Open source license information will be added here.</em></p>
-          <p>This is a placeholder for the Open Source Licenses. The actual license information will be provided and inserted here.</p>
-        </div>
-      </div>
+      <h1>Open Source Licenses</h1>
+      
+      <p>Dragify uses the following open source software. We are grateful to the developers and communities behind these projects.</p>
+      
+      <p>This page provides attribution and license notices for third-party open source components included in or used by Dragify. All trademarks and copyrights belong to their respective owners.</p>
+      
+      <p>Where required by license, the full text of the applicable license is made available via the linked project repositories.</p>
+      
+      <h2>Backend & Faceswap Infrastructure</h2>
+      
+      <h3>1. Replicate</h3>
+      <p><strong>Project:</strong> Replicate Python SDK<br>
+      <strong>Copyright:</strong> Copyright (c) Replicate, Inc.<br>
+      <strong>License:</strong> Apache License, Version 2.0<br>
+      <strong>Project URL:</strong> <a href="https://github.com/replicate/replicate-python" target="_blank" rel="noopener">https://github.com/replicate/replicate-python</a></p>
+      
+      <p>Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. You may obtain a copy of the License at: <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">https://www.apache.org/licenses/LICENSE-2.0</a></p>
+      
+      <h3>2. MediaPipe</h3>
+      <p><strong>Project:</strong> MediaPipe<br>
+      <strong>Copyright:</strong> Copyright (c) 2020–2023 Google LLC<br>
+      <strong>License:</strong> Apache License, Version 2.0<br>
+      <strong>Project URL:</strong> <a href="https://mediapipe.dev" target="_blank" rel="noopener">https://mediapipe.dev</a></p>
+      
+      <h3>3. InsightFace</h3>
+      <p><strong>Project:</strong> InsightFace<br>
+      <strong>Copyright:</strong> Copyright (c) InsightFace<br>
+      <strong>License:</strong> MIT License<br>
+      <strong>Project URL:</strong> <a href="https://github.com/deepinsight/insightface" target="_blank" rel="noopener">https://github.com/deepinsight/insightface</a></p>
+      
+      <h3>4. ONNX Runtime</h3>
+      <p><strong>Project:</strong> ONNX Runtime<br>
+      <strong>Copyright:</strong> Copyright (c) Microsoft Corporation<br>
+      <strong>License:</strong> MIT License<br>
+      <strong>Project URL:</strong> <a href="https://onnxruntime.ai" target="_blank" rel="noopener">https://onnxruntime.ai</a></p>
+      
+      <h3>5. OpenCV (Open Source Computer Vision Library)</h3>
+      <p><strong>Project:</strong> OpenCV<br>
+      <strong>Copyright Notices:</strong></p>
+      <ul>
+        <li>Copyright (c) 2000–2023, Intel Corporation</li>
+        <li>Copyright (c) 2009–2011, Willow Garage Inc.</li>
+        <li>Copyright (c) 2009–2016, NVIDIA Corporation</li>
+        <li>Copyright (c) 2010–2013, Advanced Micro Devices, Inc.</li>
+        <li>Copyright (c) 2015–2016, OpenCV Foundation</li>
+        <li>Copyright (c) 2015–2016, Itseez Inc.</li>
+      </ul>
+      <p><strong>License:</strong> Apache License, Version 2.0<br>
+      <strong>Project URL:</strong> <a href="https://opencv.org" target="_blank" rel="noopener">https://opencv.org</a></p>
+      
+      <h3>6. FastAPI</h3>
+      <p><strong>Project:</strong> FastAPI<br>
+      <strong>Copyright:</strong> Copyright (c) 2018 Sebastián Ramírez<br>
+      <strong>License:</strong> MIT License<br>
+      <strong>Project URL:</strong> <a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener">https://fastapi.tiangolo.com</a></p>
+      
+      <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, subject to the conditions of the MIT License.</p>
+      
+      <h3>7. Uvicorn</h3>
+      <p><strong>Project:</strong> Uvicorn<br>
+      <strong>Copyright:</strong> Copyright (c) 2017–present, Encode OSS Ltd.<br>
+      <strong>License:</strong> BSD 3-Clause License<br>
+      <strong>Project URL:</strong> <a href="https://uvicorn.org" target="_blank" rel="noopener">https://uvicorn.org</a></p>
+      
+      <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the conditions of the BSD 3-Clause License are met.</p>
+      
+      <h3>8. Pydantic</h3>
+      <p><strong>Project:</strong> Pydantic<br>
+      <strong>Copyright:</strong> Copyright (c) 2017–present Samuel Colvin<br>
+      <strong>License:</strong> MIT License<br>
+      <strong>Project URL:</strong> <a href="https://docs.pydantic.dev" target="_blank" rel="noopener">https://docs.pydantic.dev</a></p>
+      
+      <h3>9. NumPy</h3>
+      <p><strong>Project:</strong> NumPy<br>
+      <strong>Copyright:</strong> Copyright (c) 2005–2023, NumPy Developers<br>
+      <strong>License:</strong> BSD 3-Clause License<br>
+      <strong>Project URL:</strong> <a href="https://numpy.org" target="_blank" rel="noopener">https://numpy.org</a></p>
+      
+      <h3>10. Pillow (PIL Fork)</h3>
+      <p><strong>Project:</strong> Pillow<br>
+      <strong>Copyright:</strong> Copyright (c) 2010–2024 Jeffrey A. Clark (Alex) and contributors<br>
+      <strong>License:</strong> HPND License<br>
+      <strong>Project URL:</strong> <a href="https://python-pillow.org" target="_blank" rel="noopener">https://python-pillow.org</a></p>
+      
+      <p>Licensed under the Historical Permission Notice and Disclaimer (HPND).</p>
+      
+      <h2>Full License Texts</h2>
+      <p>The full license texts for the software listed above are available from the respective project repositories and websites:</p>
+      <ul>
+        <li><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache License 2.0</a></li>
+        <li><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></li>
+        <li><a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank" rel="noopener">BSD 3-Clause License</a></li>
+        <li><a href="https://spdx.org/licenses/HPND.html" target="_blank" rel="noopener">HPND License</a></li>
+      </ul>
+      
+      <h2>No Affiliation</h2>
+      <p>Use of these open source projects does not imply any endorsement of Dragify by their authors or maintainers. All third-party software is provided "as is" under the terms of its respective license.</p>
     </div>
   </main>
-  <Footer />
 </Layout>
 
 <style>
   .legal-page {
-    min-height: 60vh;
-    padding: var(--spacing-xl) 0;
+    background: #FFFFFF;
+    padding: var(--spacing-xxl) 0;
+    min-height: 100vh;
   }
 
-  .legal-content {
+  .legal-page .container {
     max-width: 800px;
-    margin: 0 auto;
   }
 
-  .legal-content h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+  .legal-page h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: var(--spacing-sm);
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--blue);
   }
 
-  .last-updated {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: var(--spacing-lg);
+  .legal-page h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--blue);
   }
 
-  .placeholder-content {
-    padding: var(--spacing-lg);
-    background: #f8f8f8;
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--gradient-start);
-  }
-
-  .placeholder-content p {
+  .legal-page h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-sm);
+    color: var(--pink);
   }
 
-  .placeholder-content em {
-    color: var(--gradient-end);
-    font-weight: 600;
+  .legal-page p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+  }
+
+  .legal-page ul {
+    margin-bottom: var(--spacing-md);
+    margin-left: var(--spacing-lg);
+    line-height: 1.7;
+  }
+
+  .legal-page li {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .legal-page strong {
+    font-weight: 700;
+  }
+
+  .legal-page a {
+    color: var(--blue);
+    text-decoration: underline;
+  }
+
+  .legal-page a:hover {
+    color: var(--pink);
   }
 </style>
