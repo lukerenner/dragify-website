@@ -1,6 +1,7 @@
 ---
 // Footer Component
 import { config } from '../config';
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <footer class="site-footer">
@@ -33,9 +34,9 @@ import { config } from '../config';
 
       <div class="footer-bottom">
         <div class="footer-links">
-          <a href={`${import.meta.env.BASE_URL}/terms`}>Terms of Service</a>
-          <a href={`${import.meta.env.BASE_URL}/privacy`}>Privacy Policy</a>
-          <a href={`${import.meta.env.BASE_URL}/open-source`}>Open Source Licenses</a>
+          <a href={`${baseUrl}/terms`}>Terms of Service</a>
+          <a href={`${baseUrl}/privacy`}>Privacy Policy</a>
+          <a href={`${baseUrl}/open-source`}>Open Source Licenses</a>
         </div>
         <div class="footer-tagline">
           <div>Made with love by drag queens</div>
