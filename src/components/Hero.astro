@@ -6,14 +6,19 @@ import { config } from '../config';
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <h1 class="gradient-text hero-title">Dragify</h1>
-        <p class="hero-subtitle">DISCOVER YOUR INNER QUEEN. ✨👑</p>
-        <a href={config.appStoreUrl} class="app-store-badge">
-          <img src="/images/Download.png" alt="Download on the App Store" width="200" height="60" />
+        <h1 class="hero-title">
+          <span class="blue-bold-text">Dragify</span>
+        </h1>
+        <p class="hero-subtitle">
+          <span class="pink-gradient-text">DISCOVER YOUR</span><br />
+          <span class="pink-gradient-text">INNER QUEEN.</span> 👑✨
+        </p>
+        <a href={config.appStoreUrl} class="app-store-link">
+          <img src="/images/Download.png" alt="Download on the App Store" width="135" height="40" />
         </a>
       </div>
       <div class="hero-image">
-        <img src="/images/1 - header.png" alt="Dragify App on iPhone" width="400" height="800" />
+        <img src="/images/1%20-%20header.png" alt="Dragify App on iPhone" width="350" height="700" />
       </div>
     </div>
   </div>
@@ -22,13 +27,13 @@ import { config } from '../config';
 <style>
   .hero {
     background: var(--white);
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
   }
 
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
     align-items: center;
   }
 
@@ -37,31 +42,30 @@ import { config } from '../config';
   }
 
   .hero-title {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
     margin-bottom: var(--spacing-sm);
-    line-height: 1;
+    line-height: 0.9;
   }
 
   .hero-subtitle {
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    font-style: italic;
-    font-weight: 600;
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    font-weight: 800;
     margin-bottom: var(--spacing-lg);
-    color: var(--text-dark);
+    line-height: 1.2;
   }
 
-  .app-store-badge {
+  .app-store-link {
     display: inline-block;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
   }
 
-  .app-store-badge:hover {
+  .app-store-link:hover {
     transform: scale(1.05);
   }
 
-  .app-store-badge img {
+  .app-store-link img {
+    height: 40px;
     width: auto;
-    height: 60px;
   }
 
   .hero-image {
@@ -74,7 +78,6 @@ import { config } from '../config';
     max-width: 100%;
     height: auto;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-    transform: rotate(-5deg);
   }
 
   @media (max-width: 968px) {
@@ -94,7 +97,7 @@ import { config } from '../config';
     }
 
     .hero-image img {
-      max-width: 300px;
+      max-width: 280px;
     }
   }
 </style>

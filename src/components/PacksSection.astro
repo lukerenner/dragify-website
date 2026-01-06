@@ -1,18 +1,18 @@
 ---
 // Packs Section Component
 const packs = [
-  { id: 1, image: '/images/3 - pack 1.png', alt: 'Limited Edition Pack 1' },
-  { id: 2, image: '/images/3 - pack 2.png', alt: 'Limited Edition Pack 2' },
-  { id: 3, image: '/images/3 - pack 3.png', alt: 'Limited Edition Pack 3' },
-  { id: 4, image: '/images/3 - pack 4.png', alt: 'Limited Edition Pack 4' },
+  { id: 1, image: '/images/3%20-%20pack%201.png', alt: 'Afterglow Pack' },
+  { id: 2, image: '/images/3%20-%20pack%202.png', alt: 'Haute Haus Pack' },
+  { id: 3, image: '/images/3%20-%20pack%203.png', alt: 'Euphoria // UV Pack' },
+  { id: 4, image: '/images/3%20-%20pack%204.png', alt: 'Ground Control Pack' },
 ];
 ---
 
 <section class="packs-section">
   <div class="container">
-    <h2 class="section-title gradient-text">
-      Expand your wardrobe with<br />
-      <em>Limited-Edition</em> Packs
+    <h2 class="section-title text-center">
+      <span class="pink-gradient-text">EXPAND YOUR WARDROBE WITH</span><br />
+      <span class="blue-bold-text">Limited-Edition Packs</span>
     </h2>
     <div class="packs-grid">
       {packs.map((pack) => (
@@ -21,8 +21,8 @@ const packs = [
             src={pack.image} 
             alt={pack.alt}
             loading="lazy"
-            width="500"
-            height="600"
+            width="600"
+            height="400"
           />
         </div>
       ))}
@@ -33,36 +33,31 @@ const packs = [
 <style>
   .packs-section {
     background: var(--white);
+    padding: var(--spacing-xxl) 0;
   }
 
   .section-title {
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: var(--spacing-xl);
+    font-size: clamp(1.8rem, 4vw, 3rem);
     line-height: 1.2;
-  }
-
-  .section-title em {
-    font-style: italic;
-    display: block;
   }
 
   .packs-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .pack-card {
     border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
   }
 
   .pack-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+    transform: translateY(-6px);
   }
 
   .pack-card img {
@@ -73,7 +68,7 @@ const packs = [
 
   @media (max-width: 768px) {
     .section-title {
-      font-size: clamp(1.5rem, 6vw, 2.5rem);
+      font-size: clamp(1.5rem, 6vw, 2.2rem);
     }
     
     .packs-grid {

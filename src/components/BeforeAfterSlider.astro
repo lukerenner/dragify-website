@@ -4,14 +4,14 @@
 
 <section class="slider-section">
   <div class="container">
-    <h2 class="section-title gradient-text">
-      Unleash the Queen<br />
-      <em>Inside You!</em>
+    <h2 class="section-title text-center">
+      <span class="blue-bold-text">Unleash the Queen</span><br />
+      <span class="blue-bold-text">Inside You!</span>
     </h2>
     <div class="slider-container">
       <div class="slider-images">
         <img 
-          src="/images/4 - before.png" 
+          src="/images/4%20-%20before.png" 
           alt="Before transformation" 
           class="slider-image slider-image-before"
           width="800"
@@ -19,7 +19,7 @@
           loading="lazy"
         />
         <img 
-          src="/images/4 - after.png" 
+          src="/images/4%20-%20after.png" 
           alt="After transformation" 
           class="slider-image slider-image-after"
           id="afterImage"
@@ -71,23 +71,18 @@
 <style>
   .slider-section {
     background: var(--white);
+    padding: var(--spacing-xxl) 0;
   }
 
   .section-title {
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
     font-size: clamp(2rem, 5vw, 3.5rem);
-    line-height: 1.2;
-  }
-
-  .section-title em {
-    font-style: italic;
-    display: block;
+    line-height: 1.1;
   }
 
   @media (max-width: 768px) {
     .section-title {
-      font-size: clamp(1.5rem, 6vw, 2.5rem);
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
     }
   }
 </style>
