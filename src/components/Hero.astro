@@ -3,7 +3,7 @@ import { config } from '../config';
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<section class="hero">
+<section class="hero" style={`background-image: url('${baseUrl}/images/Full%20Header.png')`}>
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
@@ -18,45 +18,53 @@ const baseUrl = import.meta.env.BASE_URL;
           <img src={`${baseUrl}/images/Download.png`} alt="Download on the App Store" width="270" height="80" />
         </a>
       </div>
-      <div class="hero-image">
-        <img src={`${baseUrl}/images/1%20-%20header.png`} alt="Dragify App on iPhone" width="500" height="1000" />
-      </div>
+      <!-- Hero Image removed, replaced by section background -->
     </div>
   </div>
 </section>
 
 <style>
   .hero {
-    background: var(--white);
-    padding: var(--spacing-lg) 0;
-    overflow: hidden; /* Ensure headers don't cause scroll */
+    /* Background image set inline for dynamic base path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
   }
 
   .hero-grid {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: var(--spacing-sm);
-    align-items: center;
+    display: block;
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    height: 100%;
   }
 
   .hero-content {
     padding-left: var(--spacing-lg);
     z-index: 10;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    max-width: 600px;
   }
 
   .hero-title {
-    font-size: clamp(3.5rem, 8vw, 5.5rem);
-    margin-bottom: var(--spacing-sm);
-    line-height: 0.9;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
   }
 
   .hero-subtitle {
-    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-    font-weight: 800;
-    margin-bottom: var(--spacing-lg);
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
     line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
   }
 
   .app-store-link {
@@ -65,46 +73,34 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   .app-store-link:hover {
-    transform: scale(1.05);
+    transform: translateY(-2px);
   }
 
   .app-store-link img {
     height: 80px;
     width: auto;
   }
-
-  .hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: -10%; /* Pull image to the right edge */
-  }
-
-  .hero-image img {
-    max-width: 120%;
-    width: 600px;
-    height: auto;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-  }
-
-  @media (max-width: 968px) {
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-md);
+  
+  @media (max-width: 768px) {
+    .hero {
+      background-position: 70% center; /* Adjust for mobile if needed */
+      min-height: 90vh;
     }
-
+    
     .hero-content {
-      text-align: center;
-      padding-right: 0;
-      order: 2;
+      padding-left: var(--spacing-md);
+      padding-right: var(--spacing-md);
+      text-align: left; /* Keep left alignment usually better for reading */
+      max-width: 100%;
     }
-
-    .hero-image {
-      order: 1;
+    
+    .hero-title {
+      font-size: clamp(2.5rem, 10vw, 4rem);
     }
-
-    .hero-image img {
-      max-width: 280px;
+    
+    .app-store-link img {
+      height: 60px;
+      width: auto;
     }
   }
 </style>
