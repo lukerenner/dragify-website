@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
   <main class="legal-page">
     <div class="container">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: January 3, 2026</p>
+      <p class="last-updated">Last updated: March 21, 2026</p>
       
       <p>This Privacy Policy (the "Policy") describes how Canonical LLC ("Dragify," "we," "us," or "our") collects, uses, and shares information in connection with the Dragify mobile application (the "App") and any related websites or services (collectively, the "Services").</p>
       
@@ -23,20 +23,21 @@ import Layout from '../layouts/Layout.astro';
       </ul>
       
       <h2>1. INFORMATION WE COLLECT</h2>
-      <h3>1.1 Images You Provide</h3>
-      <p>When you use the App to generate or modify an image, we temporarily process:</p>
+      <h3>1.1 Face Photos</h3>
+      <p>Dragify's core feature requires you to submit a photo containing your face ("face photo"). When you initiate a face swap, you explicitly select or capture a photo — no images or face data are collected passively or in the background. We temporarily process:</p>
       <ul>
-        <li>Photos or images you upload or capture through the App.</li>
-        <li>Generated images resulting from the transformation.</li>
+        <li>The face photo you upload or capture through the App (standard JPEG image).</li>
+        <li>The result image generated from the transformation.</li>
       </ul>
-      
-      <p>These images are processed only to provide the requested transformation. They are not used for advertising, sold, or shared for unrelated purposes.</p>
-      
-      <p>Images are:</p>
+
+      <p>We do <strong>not</strong> collect facial geometry, biometric templates, or facial recognition data of any kind.</p>
+
+      <p>Face photos are:</p>
       <ul>
-        <li>Transmitted securely to our processing servers</li>
-        <li>Stored only temporarily for processing and short-term caching</li>
-        <li>Automatically deleted within a limited time window (generally within 24–48 hours)</li>
+        <li>Transmitted securely over HTTPS to our processing servers</li>
+        <li>Stored only temporarily for processing and short-term re-edit caching</li>
+        <li>Automatically and permanently deleted within <strong>7 days</strong> of upload</li>
+        <li>Deleted immediately if the swap request fails</li>
       </ul>
       
       <h3>1.2 Usage and Technical Information</h3>
@@ -58,15 +59,22 @@ import Layout from '../layouts/Layout.astro';
       </ul>
       
       <h2>2. HOW WE USE INFORMATION</h2>
-      <h3>2.1 Images</h3>
-      <p>We use images only to:</p>
+      <h3>2.1 Face Photos</h3>
+      <p>We use face photos solely to:</p>
       <ul>
-        <li>Perform the requested transformation</li>
-        <li>Return the generated result to you</li>
-        <li>Enable limited re-edits within the short retention window</li>
+        <li>Perform the face swap transformation you explicitly requested</li>
+        <li>Return the generated result image to you</li>
+        <li>Enable limited re-edits within the retention window</li>
       </ul>
-      
-      <p>We do not use your images to train unrelated AI models, for marketing, or for resale.</p>
+
+      <p>We do <strong>not</strong> use face photos for:</p>
+      <ul>
+        <li>Advertising or marketing</li>
+        <li>User identification or cross-app tracking</li>
+        <li>Biometric authentication</li>
+        <li>Training AI models unrelated to your requested swap</li>
+        <li>Resale or sharing with data brokers</li>
+      </ul>
       
       <h3>2.2 Other Information</h3>
       <p>We use non-image data to:</p>
@@ -81,16 +89,21 @@ import Layout from '../layouts/Layout.astro';
       
       <h2>3. HOW WE SHARE INFORMATION</h2>
       <p>We do not sell personal information.</p>
-      
-      <p>We may share information with:</p>
+
+      <h3>3.1 Face Photo Sharing</h3>
+      <p>To perform the face swap, your face photo is transmitted to <strong>Replicate</strong> (<a href="https://replicate.com" target="_blank" rel="noopener">replicate.com</a>), a third-party AI infrastructure provider that runs the machine learning model responsible for the face composite. Your photo is sent as encrypted data over a secure, authenticated HTTPS connection. Replicate's handling of this data is governed by <a href="https://replicate.com/privacy" target="_blank" rel="noopener">Replicate's Privacy Policy</a>.</p>
+
+      <p>We do not share face photos with any other third parties — no advertising networks, analytics platforms, or data brokers receive your face data.</p>
+
+      <h3>3.2 Other Sharing</h3>
+      <p>We may also share information with:</p>
       <ul>
-        <li>Cloud infrastructure providers used solely for processing and storage</li>
-        <li>Service providers (hosting, analytics, crash reporting, support tooling)</li>
+        <li><strong>Fly.io</strong> — cloud infrastructure provider hosting our backend servers (United States)</li>
         <li>Professional advisors (legal, accounting, compliance)</li>
         <li>Authorities, when legally required</li>
       </ul>
-      
-      <p>Images are only accessible to processors necessary to provide the service and are not accessible for general internal browsing.</p>
+
+      <p>Face photos and result images are only accessible to processors necessary to provide the service.</p>
       
       <h2>4. YOUR CHOICES</h2>
       <p>You may:</p>
@@ -112,8 +125,8 @@ import Layout from '../layouts/Layout.astro';
       <p>You are responsible for maintaining the security of your own device and account.</p>
       
       <h2>7. DATA RETENTION</h2>
-      <p>Images are deleted automatically within 24–48 hours unless required for ongoing processing.</p>
-      
+      <p>Face photos and result images are automatically and permanently deleted within <strong>7 days</strong> of upload. If a swap request fails for any reason, all uploaded files for that request are deleted immediately. You may request early deletion by contacting privacy@dragify.app.</p>
+
       <p>Other data is retained only as long as necessary for operational, legal, or security purposes.</p>
       
       <h2>8. INTERNATIONAL TRANSFERS</h2>
