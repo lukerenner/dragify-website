@@ -1,7 +1,7 @@
 // Site configuration constants
 export const config = {
     // App Store URL - update this when the actual URL is available
-    appStoreUrl: 'APP_STORE_URL_PLACEHOLDER',
+    appStoreUrl: 'https://apps.apple.com/us/app/dragify-drag-queen-face-swap/id6756401226',
 
     // Formspree endpoint for contact form
     formEndpoint: 'https://formspree.io/f/mykzqjwg',
