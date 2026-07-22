@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragify - Transform Into Your Inner Queen</title>
+    <meta name="description" content="AI-powered drag transformation. Become the queen you were meant to be with instant faceswap technology.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700,900&family=Bebas+Neue&family=DM+Sans:wght@400,500,700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --text-primary: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent-pink: #ff006e;
+            --accent-cyan: #00f5ff;
+            --accent-gold: #ffd60a;
+            --gradient-drag: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-cyan) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            cursor: none;
+        }
+        
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-pink);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Sparkle Trail */
+        .sparkle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            animation: sparkle-fade 1s ease-out forwards;
+        }
+        
+        @keyframes sparkle-fade {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) rotate(180deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            background: var(--gradient-drag);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            color: var(--text-primary);
+        }
+        
+        h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            letter-spacing: 0.05em;
+            color: var(--accent-cyan);
+        }
+        
+        p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+        
+        /* Buttons */
+        .btn {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            padding: 1.25rem 3rem;
+            border: none;
+            border-radius: 50px;
+            cursor: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-drag);
+            color: var(--text-primary);
+            box-shadow: 0 10px 40px rgba(255, 0, 110, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 60px rgba(255, 0, 110, 0.6);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.6);
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient-drag);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent-pink);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 5% 4rem;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 0, 110, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(0, 245, 255, 0.15) 0%, transparent 50%);
+            animation: pulse-bg 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            opacity: 0;
+            animation: fade-in-up 1s ease forwards;
+        }
+        
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-primary);
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fade-in-up 1s ease 0.2s forwards;
+        }
+        
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fade-in-up 1s ease 0.4s forwards;
+        }
+        
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .badge-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gradient-drag);
+            border-radius: 50%;
+        }
+        
+        /* Interactive Demo */
+        .hero-demo {
+            position: relative;
+            opacity: 0;
+            animation: fade-in-up 1s ease 0.3s forwards;
+        }
+        
+        .demo-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(255, 0, 110, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-secondary);
+            aspect-ratio: 3/4;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .demo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2a2a3e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+        
+        .demo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-drag);
+            opacity: 0;
+            mix-blend-mode: overlay;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .demo-container:hover .demo-overlay {
+            opacity: 0.3;
+        }
+        
+        /* Animations */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 8rem 5%;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Story Section */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .story-card {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .story-card.visible {
+            animation: fade-in-up 0.8s ease forwards;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-pink);
+            box-shadow: 0 20px 60px rgba(255, 0, 110, 0.2);
+        }
+        
+        .story-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-card h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Product Showcase */
+        .showcase {
+            background: var(--bg-secondary);
+        }
+        
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        
+        .showcase-visual {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 9/16;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2a2a3e 100%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .showcase-features {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: start;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-drag);
+            border-radius: 15px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .feature-content h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Social Proof */
+        .testimonials {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .testimonial {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-drag);
+            border-radius: 50%;
+        }
+        
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .testimonial-handle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: var(--gradient-drag);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+        
+        /* Comparison Table */
+        .comparison {
+            background: var(--bg-secondary);
+        }
+        
+        .comparison-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            padding: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: center;
+        }
+        
+        .comparison-row:first-child {
+            background: var(--gradient-drag);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+        
+        .comparison-row:hover:not(:first-child) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .check {
+            color: var(--accent-cyan);
+            font-size: 1.5rem;
+        }
+        
+        .cross {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 10rem 5%;
+            background: radial-gradient(circle at center, rgba(255, 0, 110, 0.1) 0%, transparent 70%);
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            margin-bottom: 2rem;
+        }
+        
+        .cta-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 3rem auto 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1.25rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-input:focus {
+            outline: none;
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+        }
+        
+        .cta-alternative {
+            margin-top: 2rem;
+            color: var(--text-muted);
+        }
+        
+        .cta-alternative a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        
+        .cta-alternative a:hover {
+            color: var(--accent-pink);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient-drag);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-pink);
+        }
+        
+        .footer-newsletter input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .footer-newsletter button {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--gradient-drag);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-primary);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            cursor: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-newsletter button:hover {
+            transform: scale(1.05);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content,
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 5%;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .hero {
+                padding: 6rem 5% 3rem;
+            }
+            
+            section {
+                padding: 5rem 5%;
+            }
+            
+            .story-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-row {
+                grid-template-columns: 2fr 1fr 1fr;
+                padding: 1.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            body {
+                cursor: auto;
+            }
+            
+            .cursor,
+            .cursor-follower {
+                display: none;
+            }
+        }
+        
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="logo">DRAGIFY</div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#cta">Get Started</a>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Your Drag Transformation Awaits</h1>
+                <p>Become the queen you were meant to be with AI-powered faceswap technology</p>
+                <div class="hero-cta">
+                    <a href="#cta" class="btn btn-primary">Start Your Transformation</a>
+                    <a href="#demo" class="btn btn-secondary">See It In Action</a>
+                </div>
+                <div class="trust-badges">
+                    <div class="badge">
+                        <div class="badge-icon"></div>
+                        <span>10K+ Queens Created</span>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon"></div>
+                        <span>Instant Results</span>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon"></div>
+                        <span>100% Secure</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-demo">
+                <div class="demo-container">
+                    <div class="demo-placeholder">BEFORE → AFTER</div>
+                    <div class="demo-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Story Section -->
+    <section id="features">
+        <div class="section-header">
+            <h2>From Drab to Fab in Seconds</h2>
+            <p>No makeup skills required. No expensive photoshoots. Just pure drag magic powered by cutting-edge AI.</p>
+        </div>
+        <div class="story-grid">
+            <div class="story-card reveal">
+                <div class="story-icon">📸</div>
+                <h3>Snap a Selfie</h3>
+                <p>Take a quick photo or upload one from your camera roll. Our AI works with any lighting, any angle, any mood.</p>
+            </div>
+            <div class="story-card reveal">
+                <div class="story-icon">✨</div>
+                <h3>Choose Your Look</h3>
+                <p>Browse hundreds of iconic drag looks from legendary queens. From glamazon to camp, we've got every aesthetic covered.</p>
+            </div>
+            <div class="story-card reveal">
+                <div class="story-icon">👑</div>
+                <h3>Slay Instantly</h3>
+                <p>Watch the transformation happen in real-time. Share your drag persona with the world or keep it for yourself.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Showcase -->
+    <section class="showcase" id="demo">
+        <div class="showcase-grid">
+            <div class="showcase-visual">
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #a0a0a0; letter-spacing: 0.1em;">
+                    APP PREVIEW
+                </div>
+            </div>
+            <div class="showcase-features">
+                <h2>Technology That Serves</h2>
+                <div class="feature-item">
+                    <div class="feature-icon">🎭</div>
+                    <div class="feature-content">
+                        <h4>Hollywood-Grade Faceswap</h4>
+                        <p>The same AI technology used in major film productions, now in your pocket. Seamless blending, natural expressions, flawless results.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-content">
+                        <h4>Lightning-Fast Processing</h4>
+                        <p>No waiting around. Our optimized AI delivers your transformation in under 10 seconds. Because queens don't wait.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-content">
+                        <h4>Privacy First</h4>
+                        <p>Your photos, your business. We don't store, sell, or share your images. What happens in Dragify stays in Dragify.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof -->
+    <section id="testimonials">
+        <div class="section-header">
+            <h2>The Queens Have Spoken</h2>
+            <p>Join thousands of drag enthusiasts living their fantasy</p>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial-grid">
+                <div class="testimonial reveal">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div>
+                            <div class="testimonial-name">Alex Rivera</div>
+                            <div class="testimonial-handle">@alexdragqueen</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"I've been watching Drag Race for years and always wondered what I'd look like in drag. Dragify made that dream come true in literally 5 seconds. I'm OBSESSED."</p>
+                </div>
+                <div class="testimonial reveal">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div>
+                            <div class="testimonial-name">Jordan Lee</div>
+                            <div class="testimonial-handle">@jordanslays</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"The quality is INSANE. I showed my friends and they thought I actually got my makeup done professionally. This app is everything."</p>
+                </div>
+                <div class="testimonial reveal">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div>
+                            <div class="testimonial-name">Sam Chen</div>
+                            <div class="testimonial-handle">@samchendrag</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Finally an app that actually works! I've tried so many face swap apps and they all looked fake. Dragify is the real deal. Worth every penny."</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="reveal">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Transformations Daily</div>
+                </div>
+                <div class="reveal">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">App Store Rating</div>
+                </div>
+                <div class="reveal">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Drag Looks Available</div>
+                </div>
+                <div class="reveal">
+                    <div class="stat-number">< 10s</div>
+                    <div class="stat-label">Average Processing Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Comparison -->
+    <section class="comparison" id="pricing">
+        <div class="section-header">
+            <h2>Why Dragify Reigns Supreme</h2>
+            <p>Not all faceswap apps are created equal</p>
+        </div>
+        <div class="comparison-table">
+            <div class="comparison-row">
+                <div>Feature</div>
+                <div>Dragify</div>
+                <div>Others</div>
+            </div>
+            <div class="comparison-row">
+                <div>Drag-Specific Training Data</div>
+                <div class="check">✓</div>
+                <div class="cross">✗</div>
+            </div>
+            <div class="comparison-row">
+                <div>Hollywood-Grade AI</div>
+                <div class="check">✓</div>
+                <div class="cross">✗</div>
+            </div>
+            <div class="comparison-row">
+                <div>Sub-10 Second Processing</div>
+                <div class="check">✓</div>
+                <div class="cross">✗</div>
+            </div>
+            <div class="comparison-row">
+                <div>500+ Curated Looks</div>
+                <div class="check">✓</div>
+                <div class="cross">✗</div>
+            </div>
+            <div class="comparison-row">
+                <div>Zero Data Collection</div>
+                <div class="check">✓</div>
+                <div class="cross">✗</div>
+            </div>
+            <div class="comparison-row">
+                <div>Weekly New Looks</div>
+                <div class="check">✓</div>
+                <div class="cross">✗</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+        <div class="cta-content">
+            <h2>Ready to Meet Your Inner Queen?</h2>
+            <p>Join 10,000+ drag enthusiasts transforming their look every day</p>
+            <form class="cta-form">
+                <input type="email" class="cta-input" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Get Early Access</button>
+            </form>
+            <p class="cta-alternative">
+                Already have an account? <a href="#login">Sign in here</a>
+            </p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-brand">DRAGIFY</div>
+                <p style="color: var(--text-muted); max-width: 300px;">
+                    Transform into your drag persona with AI-powered faceswap technology. Your journey to fabulousness starts here.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#demo">Demo</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <a href="#about">About</a>
+                <a href="#blog">Blog</a>
+                <a href="#careers">Careers</a>
+                <a href="#press">Press</a>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Fabulous</h4>
+                <input type="email" placeholder="Your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Dragify. All rights reserved. | <a href="#privacy" style="color: var(--text-muted);">Privacy Policy</a> | <a href="#terms" style="color: var(--text-muted);">Terms of Service</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+            
+            // Sparkle trail (throttled)
+            if (Math.random() > 0.9) {
+                createSparkle(mouseX, mouseY);
+            }
+        });
+        
+        // Smooth follower
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+        
+        // Sparkle creation
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 1000);
+        }
+        
+        // Magnetic buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(2)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Scroll reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.reveal, .story-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        document.querySelector('.cta-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your interest! We\'ll be in touch soon. 💅');
+        });
+        
+        // Demo interaction
+        const demoContainer = document.querySelector('.demo-container');
+        if (demoContainer) {
+            demoContainer.addEventListener('mousemove', (e) => {
+                const rect = demoContainer.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+                const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
+                demoContainer.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg)`;
+            });
+            
+            demoContainer.addEventListener('mouseleave', () => {
+                demoContainer.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+            });
+        }
+        
+        // Parallax background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBg = document.querySelector('.hero-bg');
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

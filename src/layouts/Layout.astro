@@ -1,10 +1,54 @@
 ---
+import { config } from '../config';
+
 interface Props {
   title: string;
   description?: string;
+  /** Path (relative to site root) of the social card image. */
+  ogImage?: string;
+  /** Set true to keep a page out of search indexes. */
+  noindex?: boolean;
+  /** Extra JSON-LD to inject (e.g. FAQPage). Single object or array. */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description = 'Transform yourself into a drag queen with Dragify - the ultimate drag transformation app' } = Astro.props;
+const {
+  title,
+  description = 'Transform yourself into a drag queen with Dragify — the ultimate AI drag transformation and face swap app for iPhone.',
+  ogImage = '/og-image.png',
+  noindex = false,
+  jsonLd,
+} = Astro.props;
+
+// Absolute URLs (Astro.site = https://dragifyapp.com)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+// SoftwareApplication schema — describes the app the whole site promotes.
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Dragify: Drag Queen Face Swap',
+  operatingSystem: 'iOS',
+  applicationCategory: 'EntertainmentApplication',
+  description,
+  url: 'https://dragifyapp.com',
+  installUrl: config.appStoreUrlRaw,
+  image: ogImageURL.href,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  // Honest values from the App Store. Low count for now — enrich as ratings grow.
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    ratingCount: '3',
+  },
+};
+
+const extraJsonLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 
 <!DOCTYPE html>
@@ -12,14 +56,45 @@ const { title, description = 'Transform yourself into a drag queen with Dragify 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL.href} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dragify" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:image" content={ogImageURL.href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL.href} />
+
+    <!-- Smart App Banner (iOS Safari) -->
+    <meta
+      name="apple-itunes-app"
+      content={`app-id=${config.appStoreId}, app-argument=${canonicalURL.href}`}
+    />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(appSchema)} />
+    {extraJsonLd.map((schema) => (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+    ))}
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <slot />
   </body>
 </html>

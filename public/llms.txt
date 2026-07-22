@@ -1,0 +1,26 @@
+# Dragify
+
+> Dragify is an iPhone app that transforms a selfie into a drag queen look using AI face swap. Snap or upload a photo, pick a look pack, and get a polished drag transformation in seconds — then share it.
+
+Dragify is made for anyone curious about drag: first-timers exploring a look, drag fans, and performers who want quick concept art. It runs on iOS and is free to download with optional in-app purchases and a subscription (Dragify Pro) that unlocks additional look packs.
+
+## What it does
+- AI drag face swap: turn a selfie into a drag queen portrait.
+- Look packs: curated aesthetics (e.g. Canonical Queens, Euphoria // UV) to swap into.
+- Instant reveal and one-tap sharing.
+- On-device-friendly flow: capture a selfie, generate, reveal, share.
+
+## Key pages
+- [Home](https://dragifyapp.com/): overview, before/after examples, and the App Store download.
+- [Drag Name Generator](https://dragifyapp.com/drag-name-generator/): a free tool that generates a drag queen name.
+- [Support](https://dragifyapp.com/support/): help and contact.
+- [Privacy Policy](https://dragifyapp.com/privacy/)
+- [Terms of Service](https://dragifyapp.com/terms/)
+
+## Get the app
+- App Store: https://apps.apple.com/us/app/dragify-drag-queen-face-swap/id6756401226
+
+## Common questions
+- Platform: iPhone (iOS). No Android or web app version.
+- Price: free to download; optional in-app purchases and a Dragify Pro subscription.
+- What you need: a selfie or portrait photo.

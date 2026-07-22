@@ -1,0 +1,85 @@
+---
+// Compact social-proof strip. Keep every claim honest and verifiable.
+---
+
+<section class="proof-strip">
+  <div class="container proof-inner">
+    <div class="proof-item">
+      <div class="stars" aria-hidden="true">★★★★★</div>
+      <div class="proof-label"><strong>5.0</strong> on the App Store</div>
+    </div>
+    <div class="proof-divider" aria-hidden="true"></div>
+    <div class="proof-item">
+      <div class="proof-big">📱</div>
+      <div class="proof-label"><strong>Free</strong> to download &amp; try</div>
+    </div>
+    <div class="proof-divider" aria-hidden="true"></div>
+    <div class="proof-item">
+      <div class="proof-big">💅</div>
+      <div class="proof-label">Made by drag queens,<br />for drag queens</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .proof-strip {
+    background: var(--white);
+    padding: var(--spacing-lg) 0;
+  }
+
+  .proof-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .proof-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    min-width: 160px;
+  }
+
+  .stars {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .proof-big {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .proof-label {
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.3;
+  }
+
+  .proof-label strong {
+    color: var(--blue);
+  }
+
+  .proof-divider {
+    width: 1px;
+    height: 42px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .proof-inner {
+      gap: var(--spacing-md);
+    }
+    .proof-divider {
+      display: none;
+    }
+  }
+</style>

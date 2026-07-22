@@ -1,0 +1,253 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { config } from '../config';
+
+const faq = [
+  {
+    q: 'How do I come up with a drag name?',
+    a: 'Great drag names usually pair a glamorous or punny first name with a bold last name — think a personality, a fantasy, or a wink. Use the generator above to spin combinations, then tweak the one that feels like you.',
+  },
+  {
+    q: 'Is the drag name generator free?',
+    a: 'Yes. The Dragify drag name generator is completely free and runs right in your browser — no sign-up, no download required.',
+  },
+  {
+    q: 'Can I see myself in the look, not just the name?',
+    a: 'Yes — that is what the Dragify app does. Once you have a name, download Dragify on iPhone to turn a selfie into a full AI drag transformation to match your new persona.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Layout
+  title="Drag Name Generator — Find Your Drag Queen Name | Dragify"
+  description="Generate your drag queen name with the free Dragify drag name generator. Spin fabulous, punny drag names in seconds — then see yourself in the look."
+  jsonLd={faqSchema}
+>
+  <Header />
+  <main id="main-content">
+    <section class="gen-hero">
+      <div class="container">
+        <h1 class="gen-title"><span class="gradient-text">Drag Name Generator</span></h1>
+        <p class="gen-sub">Spin up your fabulous drag persona. Free, instant, no sign-up.</p>
+
+        <div class="gen-card">
+          <output id="drag-name" class="gen-name" aria-live="polite">Tap generate 💅</output>
+          <div class="gen-actions">
+            <button id="generate" class="btn btn-primary gen-btn" type="button">Generate my drag name</button>
+            <button id="copy" class="btn gen-btn-secondary" type="button">Copy</button>
+          </div>
+          <p id="copied" class="gen-copied" hidden>Copied! ✨</p>
+        </div>
+
+        <a href={config.nameGenAppUrl} class="btn btn-primary gen-cta">
+          Now see yourself in the look — get Dragify
+        </a>
+      </div>
+    </section>
+
+    <section class="gen-content">
+      <div class="container narrow">
+        <h2>How to pick your drag name</h2>
+        <p>
+          Your drag name is your stage identity — it should feel powerful, playful, and unmistakably
+          <em>you</em>. The classic recipe is a memorable first name (glamorous, punny, or a little
+          shady) paired with a last name that lands like a mic drop. Spin the generator above as many
+          times as you like, mix and match, and make it your own.
+        </p>
+        <p>
+          Once you have the name, the next step is the look. <a href={config.nameGenAppUrl}>Dragify</a>
+          turns a single selfie into a full AI drag transformation on iPhone, so your new persona gets
+          a face to match.
+        </p>
+
+        <h2>Drag name generator FAQ</h2>
+        {faq.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const first = [
+    'Crystal', 'Anita', 'Ivana', 'Sasha', 'Velvet', 'Ruby', 'Bianca', 'Coco',
+    'Gigi', 'Fifi', 'Cherry', 'Roxy', 'Diamond', 'Pixie', 'Scarlet', 'Aqua',
+    'Vivienne', 'Miss', 'Lady', 'Bombshell', 'Glitter', 'Honey', 'Peaches', 'Amber',
+  ];
+  const last = [
+    'Divine', 'Thunder', 'Mann', 'Del Rey', 'Sparkles', 'Fierce', 'Frost', 'Storm',
+    'Delight', 'Fontaine', 'Star', 'Royale', 'Nights', 'Galore', 'Ravage', 'Couture',
+    'Sunrise', 'Diva', 'Heart', 'Velour', 'Flame', 'Rivera', 'Dazzle', 'Le Femme',
+  ];
+
+  const nameEl = document.getElementById('drag-name');
+  const genBtn = document.getElementById('generate');
+  const copyBtn = document.getElementById('copy');
+  const copied = document.getElementById('copied');
+
+  const pick = (a: string[]) => a[Math.floor(Math.random() * a.length)];
+
+  function generate() {
+    let name: string;
+    do {
+      name = `${pick(first)} ${pick(last)}`;
+    } while (name === nameEl?.textContent);
+    if (nameEl) nameEl.textContent = name;
+    if (copied) copied.hidden = true;
+  }
+
+  genBtn?.addEventListener('click', generate);
+
+  copyBtn?.addEventListener('click', async () => {
+    const text = nameEl?.textContent || '';
+    if (!text || text.startsWith('Tap generate')) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      if (copied) copied.hidden = false;
+    } catch {
+      /* clipboard unavailable — no-op */
+    }
+  });
+</script>
+
+<style>
+  .gen-hero {
+    background: var(--gradient);
+    color: var(--white);
+    padding: var(--spacing-xxl) 0 var(--spacing-xl);
+    text-align: center;
+  }
+
+  .gen-title {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .gen-hero .gradient-text {
+    background: none;
+    -webkit-text-fill-color: var(--white);
+    color: var(--white);
+  }
+
+  .gen-sub {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+  }
+
+  .gen-card {
+    background: var(--white);
+    color: var(--text-dark);
+    max-width: 620px;
+    margin: 0 auto var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  .gen-name {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    line-height: 1.1;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: var(--spacing-md);
+    min-height: 1.2em;
+  }
+
+  .gen-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .gen-btn {
+    font-size: 1.05rem;
+    padding: 0.9rem 1.75rem;
+  }
+
+  .gen-btn-secondary {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    font-weight: 700;
+    padding: 0.9rem 1.75rem;
+  }
+
+  .gen-btn-secondary:hover {
+    background: rgba(6, 74, 173, 0.06);
+  }
+
+  .gen-copied {
+    margin-top: var(--spacing-sm);
+    color: var(--pink);
+    font-weight: 700;
+  }
+
+  .gen-cta {
+    display: inline-block;
+    background: var(--white);
+    color: var(--blue);
+    font-weight: 800;
+    padding: 1rem 2rem;
+    font-size: 1.05rem;
+  }
+
+  .gen-content {
+    padding: var(--spacing-xxl) 0;
+    background: var(--white);
+  }
+
+  .narrow {
+    max-width: 760px;
+  }
+
+  .gen-content h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+  }
+
+  .gen-content p {
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-sm);
+    color: #333;
+  }
+
+  .gen-content a {
+    color: var(--pink);
+    font-weight: 700;
+  }
+
+  .faq-item {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .faq-item h3 {
+    font-family: var(--font-text);
+    font-weight: 800;
+    font-size: 1.15rem;
+    margin-bottom: 0.35rem;
+  }
+</style>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dragifyapp.com/sitemap-index.xml

@@ -16,14 +16,17 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
       >
         <div class="form-row inputs-row">
           <div class="form-group">
-            <input type="text" id="name" name="name" placeholder="Name" required />
+            <label for="name" class="sr-only">Name</label>
+            <input type="text" id="name" name="name" placeholder="Name" autocomplete="name" required />
           </div>
           <div class="form-group">
-            <input type="email" id="email" name="email" placeholder="Email" required />
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" required />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
+            <label for="message" class="sr-only">Message</label>
             <textarea id="message" name="message" rows="3" placeholder="Message" required></textarea>
           </div>
         </div>
@@ -110,8 +113,9 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
   /* Placeholder styling matching the purple/pink vibe */
   .form-group input::placeholder,
   .form-group textarea::placeholder {
-    color: #A962D6;
+    color: #8E3BB8; /* ~6:1 on white — meets WCAG AA */
     font-weight: 700;
+    opacity: 1; /* Firefox lowers placeholder opacity by default */
   }
   
   .form-group textarea {
@@ -136,7 +140,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
     font-family: var(--font-text);
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* ≥18.66px bold = WCAG large text (3:1 threshold) */
     letter-spacing: 1px;
     
     /* The button box itself needs white background */
