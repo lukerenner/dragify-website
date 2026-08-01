@@ -1,0 +1,128 @@
+---
+// Drag Name Generator teaser section for the home page
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section class="dragname-section">
+  <div class="container text-center">
+    <h2 class="section-title">
+      <span class="pink-text h3-style">DON'T HAVE A PERSONA YET?</span><br />
+      <span class="gradient-text h1-style">Find your drag name</span>
+    </h2>
+    <p class="section-sub">Spin up a fabulous drag persona in one tap. Free, instant, no sign-up.</p>
+
+    <div class="gen-card">
+      <output id="home-drag-name" class="gen-name" aria-live="polite">Tap generate 💅</output>
+      <div class="gen-actions">
+        <button id="home-generate" class="btn btn-primary gen-btn" type="button">Generate my drag name</button>
+        <a href={`${baseUrl}/drag-name-generator`} class="btn gen-btn-secondary gen-btn">More names &amp; FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const first = [
+    'Crystal', 'Anita', 'Ivana', 'Sasha', 'Velvet', 'Ruby', 'Bianca', 'Coco',
+    'Gigi', 'Fifi', 'Cherry', 'Roxy', 'Diamond', 'Pixie', 'Scarlet', 'Aqua',
+    'Vivienne', 'Miss', 'Lady', 'Bombshell', 'Glitter', 'Honey', 'Peaches', 'Amber',
+  ];
+  const last = [
+    'Divine', 'Thunder', 'Mann', 'Del Rey', 'Sparkles', 'Fierce', 'Frost', 'Storm',
+    'Delight', 'Fontaine', 'Star', 'Royale', 'Nights', 'Galore', 'Ravage', 'Couture',
+    'Sunrise', 'Diva', 'Heart', 'Velour', 'Flame', 'Rivera', 'Dazzle', 'Le Femme',
+  ];
+
+  const nameEl = document.getElementById('home-drag-name');
+  const genBtn = document.getElementById('home-generate');
+
+  const pick = (a: string[]) => a[Math.floor(Math.random() * a.length)];
+
+  genBtn?.addEventListener('click', () => {
+    let name: string;
+    do {
+      name = `${pick(first)} ${pick(last)}`;
+    } while (name === nameEl?.textContent);
+    if (nameEl) nameEl.textContent = name;
+  });
+</script>
+
+<style>
+  .dragname-section {
+    background: #FFFFFF;
+    padding: var(--spacing-xxl) 0;
+  }
+
+  .section-title {
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.1;
+  }
+
+  .h1-style {
+    font-size: clamp(3rem, 6vw, 5rem);
+  }
+
+  .h3-style {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .gen-card {
+    background: var(--white);
+    max-width: 620px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .gen-name {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    line-height: 1.1;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: var(--spacing-md);
+    min-height: 1.2em;
+  }
+
+  .gen-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .gen-btn {
+    font-size: 1.05rem;
+    padding: 0.9rem 1.75rem;
+  }
+
+  .gen-btn-secondary {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    font-weight: 700;
+    padding: 0.9rem 1.75rem;
+  }
+
+  .gen-btn-secondary:hover {
+    background: rgba(6, 74, 173, 0.06);
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: clamp(1.5rem, 6vw, 2.2rem);
+    }
+  }
+</style>
